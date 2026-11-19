@@ -46,6 +46,16 @@ const ROUTES = {
   "/become-a-driver": DriverPage,
 };
 
+const SECTION_ROUTES = {
+  "/services": "services",
+  "/vehicles": "vehicles",
+  "/service-areas": "service-areas",
+  "/why-v-taxi": "why-v-taxi",
+  "/launch-offers": "launch-offers",
+  "/coming-soon": "coming-soon",
+  "/contact": "contact",
+};
+
 function HomePage({ onOpenEnquiry, modalData }) {
   const handleOpenEnquiry = onOpenEnquiry;
   return (
@@ -79,12 +89,14 @@ export default function App() {
   const { path, hash } = useLocation();
   const Page = ROUTES[path];
 
-  // Scroll handling on navigation: hash target if present, otherwise top.
+  // Scroll handling on navigation: hash or section route target, otherwise top.
   const firstRender = useRef(true);
   useEffect(() => {
     const isFirst = firstRender.current;
     firstRender.current = false;
-    if (!hash) {
+    const targetId = hash || SECTION_ROUTES[path];
+
+    if (!targetId) {
       // Leave the browser's restored scroll position alone on a fresh load.
       if (!isFirst) window.scrollTo({ top: 0, behavior: "auto" });
       return;
@@ -92,9 +104,9 @@ export default function App() {
     let tries = 0;
     let timer = 0;
     const attempt = () => {
-      const el = document.getElementById(hash);
+      const el = document.getElementById(targetId);
       if (el) el.scrollIntoView({ behavior: "smooth" });
-      else if (tries++ < 10) timer = setTimeout(attempt, 60);
+      else if (tries++ < 12) timer = setTimeout(attempt, 60);
     };
     timer = setTimeout(attempt, 60);
     return () => clearTimeout(timer);

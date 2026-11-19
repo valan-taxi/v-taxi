@@ -16,6 +16,34 @@ const baseHtml = fs.readFileSync(indexHtmlPath, "utf-8");
 
 const PAGES = [
   {
+    folder: "services",
+    title: "Taxi Services in Tamil Nadu | Local & Outstation Cabs | V TAXI",
+    description:
+      "Explore V TAXI services across Tamil Nadu: Local city cabs, one-way & round-trip outstation rides, airport transfers (MAA, TRZ, IXM), and temple tour packages.",
+    url: "https://vtaxi.co.in/services",
+  },
+  {
+    folder: "vehicles",
+    title: "Vehicle Categories | 5-Seater Sedan, 7-Seater SUV & Innova Crysta | V TAXI",
+    description:
+      "Choose the perfect vehicle for your journey: 5-Seater Sedans (Dzire, Etios), 7-Seater SUVs (Ertiga, Carens), Premium SUVs (Innova Crysta) and Tempo Travellers.",
+    url: "https://vtaxi.co.in/vehicles",
+  },
+  {
+    folder: "service-areas",
+    title: "Service Areas Across Tamil Nadu | Chennai, Trichy, Thanjavur, Madurai, Rameswaram | V TAXI",
+    description:
+      "V TAXI operates across Tamil Nadu connecting Chennai, Trichy, Thanjavur, Madurai, and Rameswaram with reliable 24/7 taxi booking.",
+    url: "https://vtaxi.co.in/service-areas",
+  },
+  {
+    folder: "why-v-taxi",
+    title: "Why Choose V TAXI | The People's Choice Across Tamil Nadu",
+    description:
+      "Discover why travellers choose V TAXI: clean comfortable vehicles, transparent pricing, 24/7 booking helpline, courteous chauffeurs and family-friendly travel.",
+    url: "https://vtaxi.co.in/why-v-taxi",
+  },
+  {
     folder: "partner",
     title: "Become a Partner | Attach Your Fleet with V TAXI Tamil Nadu",
     description:
@@ -28,6 +56,27 @@ const PAGES = [
     description:
       "Don't own a car? Join V TAXI as a professional chauffeur. Receive training, guidance, and drive for a trusted brand across Chennai, Trichy, Thanjavur, Madurai and Rameswaram.",
     url: "https://vtaxi.co.in/driver",
+  },
+  {
+    folder: "launch-offers",
+    title: "Pre-Launch Offers & Early Access Benefits | V TAXI Tamil Nadu",
+    description:
+      "Register your interest during the V TAXI pre-launch window to receive introductory ride benefits, priority booking access, and special outstation travel rates.",
+    url: "https://vtaxi.co.in/launch-offers",
+  },
+  {
+    folder: "coming-soon",
+    title: "V TAXI Mobile App Coming Soon | Google Play & App Store",
+    description:
+      "The modern V TAXI mobile application and digital booking experience is currently under development for seamless ride booking across Tamil Nadu.",
+    url: "https://vtaxi.co.in/coming-soon",
+  },
+  {
+    folder: "contact",
+    title: "Contact Us & 24/7 Booking Helpline | V TAXI Tamil Nadu",
+    description:
+      "Get in touch with the V TAXI central booking office. Call 04362 233550 or 07358 233550 for fast quotes, reservations, and customer assistance.",
+    url: "https://vtaxi.co.in/contact",
   },
 ];
 
