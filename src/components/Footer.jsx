@@ -98,12 +98,16 @@ export default function Footer({ onOpenEnquiry }) {
             <ul className="space-y-2 text-slate-400">
               {TAXI_SERVICES.slice(0, 6).map((service) => (
                 <li key={service.id}>
-                  <button
-                    onClick={() => scrollToSection("services")}
-                    className="hover:text-crimson-400 transition text-left"
+                  <a
+                    href={`/#services`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection("services");
+                    }}
+                    className="hover:text-crimson-400 transition text-left block"
                   >
                     {service.title}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -117,12 +121,16 @@ export default function Footer({ onOpenEnquiry }) {
             <ul className="space-y-2 text-slate-400">
               {PRIMARY_SERVICE_AREAS.map((area, idx) => (
                 <li key={idx}>
-                  <button
-                    onClick={() => scrollToSection("service-areas")}
-                    className="hover:text-crimson-400 transition text-left"
+                  <a
+                    href={`/#service-areas`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection("service-areas");
+                    }}
+                    className="hover:text-crimson-400 transition text-left block"
                   >
                     {area.name} ({area.tamil})
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -135,45 +143,61 @@ export default function Footer({ onOpenEnquiry }) {
             </h4>
             <ul className="space-y-2 text-slate-400">
               <li>
-                <button
-                  onClick={() => scrollToSection("vehicles")}
-                  className="hover:text-white text-left font-bold text-slate-200"
+                <a
+                  href="/#vehicles"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection("vehicles");
+                  }}
+                  className="hover:text-white text-left font-bold text-slate-200 block"
                 >
                   5-Seater Sedan
-                </button>
+                </a>
                 <p className="text-[10px] text-slate-500">
                   City, Airport, Small Family
                 </p>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("vehicles")}
-                  className="hover:text-white text-left font-bold text-slate-200"
+                <a
+                  href="/#vehicles"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection("vehicles");
+                  }}
+                  className="hover:text-white text-left font-bold text-slate-200 block"
                 >
                   7-Seater SUV
-                </button>
+                </a>
                 <p className="text-[10px] text-slate-500">
                   Family & Long-Distance Outstation
                 </p>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("vehicles")}
-                  className="hover:text-white text-left font-bold text-slate-200"
+                <a
+                  href="/#vehicles"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection("vehicles");
+                  }}
+                  className="hover:text-white text-left font-bold text-slate-200 block"
                 >
                   Premium SUV
-                </button>
+                </a>
                 <p className="text-[10px] text-slate-500">
                   Executive Captain Seating
                 </p>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("vehicles")}
-                  className="hover:text-white text-left font-bold text-slate-200"
+                <a
+                  href="/#vehicles"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection("vehicles");
+                  }}
+                  className="hover:text-white text-left font-bold text-slate-200 block"
                 >
                   Tempo Traveller
-                </button>
+                </a>
                 <p className="text-[10px] text-amber-500 font-semibold">
                   Coming Soon for Large Groups
                 </p>

@@ -1,0 +1,12 @@
+/* TEAM */
+Brand: V TAXI - The People's Choice
+Website: https://vtaxi.co.in
+Helpline: +91 4362 233550 / +91 7358 233550
+Location: Tamil Nadu, India
+
+/* SITE */
+Standards: HTML5, CSS3, ESModules, Schema.org
+Components: React 18, Tailwind CSS, Vite
+Target Region: Tamil Nadu (Chennai, Trichy, Thanjavur, Madurai, Rameswaram)
+Language: English (en-IN), Tamil (ta-IN)
+Doctype: HTML5

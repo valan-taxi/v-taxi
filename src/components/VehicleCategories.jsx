@@ -103,7 +103,7 @@ export default function VehicleCategories({ onOpenEnquiry }) {
                       {vehicleImg && (
                         <img
                           src={vehicleImg}
-                          alt={vehicle.title}
+                          alt={`V TAXI ${vehicle.title} - ${vehicle.examples} cab hire Tamil Nadu`}
                           className="h-full w-auto max-w-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.65)]"
                           loading="lazy"
                           decoding="async"

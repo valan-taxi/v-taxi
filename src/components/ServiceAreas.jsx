@@ -112,7 +112,7 @@ export default function ServiceAreas({ onOpenEnquiry }) {
                     <div className="w-full sm:w-28 sm:h-24 h-36 rounded-xl overflow-hidden flex-shrink-0 relative bg-slate-200">
                       <img
                         src={photo}
-                        alt={`${area.name} destination view`}
+                        alt={`V TAXI cabs and outstation taxi service in ${area.name} (${area.tamil})`}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                         decoding="async"

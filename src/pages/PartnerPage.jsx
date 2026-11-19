@@ -233,8 +233,9 @@ const FAQS = [
 
 export default function PartnerPage() {
   usePageMeta(
-    "Become a Partner | Attach Your Fleet | V TAXI",
+    "Become a Partner | Attach Your Fleet with V TAXI Tamil Nadu",
     "Own taxis? Join V TAXI as a fleet partner and serve local, outstation, airport and pilgrimage travellers across Chennai, Trichy, Thanjavur, Madurai and Rameswaram.",
+    { path: "/partner" }
   );
 
   return (

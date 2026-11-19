@@ -233,8 +233,9 @@ const FAQS = [
 
 export default function DriverPage() {
   usePageMeta(
-    "Become a Driver | Drive with V TAXI",
-    "Don't own a car? Join V TAXI as a chauffeur. Get training and guidance and drive for a trusted brand across Chennai, Trichy, Thanjavur, Madurai and Rameswaram.",
+    "Become a Driver | Drive with V TAXI Tamil Nadu",
+    "Don't own a car? Join V TAXI as a professional chauffeur. Receive training, guidance, and drive for a trusted brand across Chennai, Trichy, Thanjavur, Madurai and Rameswaram.",
+    { path: "/driver" }
   );
 
   return (
