@@ -51,21 +51,16 @@
           "value": "application/xml; charset=utf-8"
         },
         {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/sitemap.xsl",
-      "headers": [
+          "key": "Content-Disposition",
+          "value": "inline; filename=\"sitemap.xml\""
+        },
         {
-          "key": "Content-Type",
-          "value": "text/xsl; charset=utf-8"
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
         },
         {
           "key": "Cache-Control",
-          "value": "public, max-age=86400"
+          "value": "public, max-age=0, must-revalidate"
         }
       ]
     },
@@ -78,7 +73,7 @@
         },
         {
           "key": "Cache-Control",
-          "value": "public, max-age=3600, must-revalidate"
+          "value": "public, max-age=0, must-revalidate"
         }
       ]
     },
@@ -91,7 +86,7 @@
         },
         {
           "key": "Cache-Control",
-          "value": "public, max-age=3600, must-revalidate"
+          "value": "public, max-age=0, must-revalidate"
         }
       ]
     },
