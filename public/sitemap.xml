@@ -1,83 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://vtaxi.co.in/</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.00</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://vtaxi.co.in/" />
-    <xhtml:link rel="alternate" hreflang="ta-IN" href="https://vtaxi.co.in/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vtaxi.co.in/" />
-    <image:image>
-      <image:loc>https://vtaxi.co.in/images/brand/v-taxi-logo-clean-transparent.png</image:loc>
-      <image:title>V TAXI - The People's Choice Official Logo</image:title>
-      <image:caption>V TAXI Official Logo - Trusted Cabs and Taxi Services in Tamil Nadu</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://vtaxi.co.in/images/social/v-taxi-og-cover.webp</image:loc>
-      <image:title>V TAXI Tamil Nadu Travel and Taxi Booking</image:title>
-      <image:caption>Comfortable local and outstation taxi service across Chennai, Trichy, Thanjavur, Madurai and Rameswaram</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://vtaxi.co.in/images/hero/hero-tamil-nadu-desktop.webp</image:loc>
-      <image:title>Tamil Nadu Taxi and Outstation Cab Journeys</image:title>
-      <image:caption>V TAXI connecting Tamil Nadu destinations with Sedans, SUVs and Premium vehicles</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://vtaxi.co.in/images/vehicles/vtaxi_5_seater_sedan.png</image:loc>
-      <image:title>V TAXI 5-Seater Sedan</image:title>
-      <image:caption>Air-conditioned sedan for city travel, airport transfers, and couples</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://vtaxi.co.in/images/vehicles/vtaxi_7_seater_suv.png</image:loc>
-      <image:title>V TAXI 7-Seater Family SUV</image:title>
-      <image:caption>Spacious Ertiga and Carens SUVs for family trips and outstation travel across Tamil Nadu</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://vtaxi.co.in/images/vehicles/vtaxi_premium_suv.png</image:loc>
-      <image:title>V TAXI Premium SUV Innova Crysta</image:title>
-      <image:caption>Executive luxury Innova Crysta for corporate travel and long-distance comfort</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://vtaxi.co.in/images/vehicles/vtaxi_tempo_traveller.png</image:loc>
-      <image:title>V TAXI Tempo Traveller</image:title>
-      <image:caption>12-17 seater tempo traveller for group travel and temple pilgrimage tours</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://vtaxi.co.in/images/destinations/chennai.webp</image:loc>
-      <image:title>Chennai Taxi and Airport Transfer</image:title>
-      <image:caption>Taxi service in Chennai for city rides, airport drops (MAA) and outstation departures</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://vtaxi.co.in/images/destinations/trichy.webp</image:loc>
-      <image:title>Trichy Kaveri Delta Cab Service</image:title>
-      <image:caption>Reliable taxi service connecting Trichy, Srirangam and Rockfort</image:caption>
-    </image:image>
+    <priority>1.0</priority>
   </url>
-
-  <!-- Become a Partner Page -->
   <url>
     <loc>https://vtaxi.co.in/partner</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://vtaxi.co.in/partner" />
-    <xhtml:link rel="alternate" hreflang="ta-IN" href="https://vtaxi.co.in/partner" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vtaxi.co.in/partner" />
+    <priority>0.8</priority>
   </url>
-
-  <!-- Become a Driver Page -->
   <url>
     <loc>https://vtaxi.co.in/driver</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://vtaxi.co.in/driver" />
-    <xhtml:link rel="alternate" hreflang="ta-IN" href="https://vtaxi.co.in/driver" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vtaxi.co.in/driver" />
+    <priority>0.8</priority>
   </url>
 </urlset>

@@ -2,7 +2,6 @@
 <xsl:stylesheet version="1.0"
                 xmlns:html="http://www.w3.org/TR/REC-html40"
                 xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9"
-                xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/>
   <xsl:template match="/">
@@ -25,7 +24,7 @@
             line-height: 1.5;
           }
           .container {
-            max-width: 1100px;
+            max-width: 960px;
             margin: 0 auto;
           }
           .header {
@@ -33,7 +32,7 @@
             border-radius: 16px;
             padding: 32px;
             color: #ffffff;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             box-shadow: 0 10px 25px -5px rgba(211, 32, 20, 0.25);
           }
           .brand {
@@ -72,7 +71,7 @@
           }
           .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 16px;
             margin-bottom: 24px;
           }
@@ -92,7 +91,7 @@
             margin-bottom: 4px;
           }
           .stat-value {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 800;
             color: #0f172a;
           }
@@ -107,9 +106,6 @@
             padding: 18px 24px;
             border-bottom: 1px solid #e2e8f0;
             background: #ffffff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
           }
           .table-title {
             font-size: 16px;
@@ -119,6 +115,7 @@
           .table-desc {
             font-size: 12px;
             color: #64748b;
+            margin-top: 2px;
           }
           table {
             width: 100%;
@@ -173,11 +170,6 @@
             background: #e0f2fe;
             color: #0369a1;
           }
-          .badge-img {
-            background: #fef3c7;
-            color: #92400e;
-            font-weight: 700;
-          }
           .footer {
             margin-top: 24px;
             text-align: center;
@@ -205,39 +197,36 @@
               <span class="brand-name">V TAXI</span>
             </div>
             <h1>XML Sitemap</h1>
-            <p>This XML sitemap is indexed by Google, Bing, and major search engines for <strong>vtaxi.co.in</strong>. It provides complete crawl indexing for all landing pages, service categories, and media assets.</p>
+            <p>Official XML sitemap for <strong>vtaxi.co.in</strong>. Crawled and indexed by Google, Bing, and major search engines.</p>
           </div>
 
           <div class="stats-grid">
             <div class="stat-card">
-              <div class="stat-label">Total URLs</div>
+              <div class="stat-label">Total Indexed Pages</div>
               <div class="stat-value"><xsl:value-of select="count(sitemap:urlset/sitemap:url)"/></div>
             </div>
             <div class="stat-card">
-              <div class="stat-label">Indexed Images</div>
-              <div class="stat-value"><xsl:value-of select="count(sitemap:urlset/sitemap:url/image:image)"/></div>
+              <div class="stat-label">Canonical Domain</div>
+              <div class="stat-value" style="font-size: 17px; line-height: 28px;">vtaxi.co.in</div>
             </div>
             <div class="stat-card">
-              <div class="stat-label">Domain</div>
-              <div class="stat-value" style="font-size: 18px; line-height: 32px;">vtaxi.co.in</div>
+              <div class="stat-label">Target Region</div>
+              <div class="stat-value" style="font-size: 17px; line-height: 28px;">Tamil Nadu, IN</div>
             </div>
           </div>
 
           <div class="card">
             <div class="table-header">
-              <div>
-                <div class="table-title">Indexed URL Directory</div>
-                <div class="table-desc">All URLs listed below are live and indexable by search bots.</div>
-              </div>
+              <div class="table-title">Live Public URLs</div>
+              <div class="table-desc">All URLs listed below are verified and indexable by search engine bots.</div>
             </div>
             <table>
               <thead>
                 <tr>
-                  <th style="width: 45%;">URL / Location</th>
-                  <th style="width: 12%;">Images</th>
+                  <th style="width: 50%;">URL</th>
+                  <th style="width: 15%;">Priority</th>
                   <th style="width: 15%;" class="hide-mobile">Change Frequency</th>
-                  <th style="width: 12%;">Priority</th>
-                  <th style="width: 16%;">Last Modified</th>
+                  <th style="width: 20%;">Last Modified</th>
                 </tr>
               </thead>
               <tbody>
@@ -249,20 +238,10 @@
                       </a>
                     </td>
                     <td>
-                      <xsl:choose>
-                        <xsl:when test="count(image:image) > 0">
-                          <span class="badge badge-img"><xsl:value-of select="count(image:image)"/> Images</span>
-                        </xsl:when>
-                        <xsl:otherwise>
-                          <span style="color: #94a3b8;">—</span>
-                        </xsl:otherwise>
-                      </xsl:choose>
+                      <span class="badge badge-priority"><xsl:value-of select="sitemap:priority"/></span>
                     </td>
                     <td class="hide-mobile">
                       <span class="badge badge-freq"><xsl:value-of select="sitemap:changefreq"/></span>
-                    </td>
-                    <td>
-                      <span class="badge badge-priority"><xsl:value-of select="sitemap:priority"/></span>
                     </td>
                     <td>
                       <span style="font-family: monospace; color: #475569; font-size: 12px;">
@@ -276,7 +255,7 @@
           </div>
 
           <div class="footer">
-            <p>© 2026 <strong>V TAXI</strong> • Tamil Nadu, India. Official Domain: <a href="https://vtaxi.co.in">vtaxi.co.in</a></p>
+            <p>© 2026 <strong>V TAXI</strong> • Central Booking Office, Tamil Nadu, India. Official Domain: <a href="https://vtaxi.co.in">vtaxi.co.in</a></p>
           </div>
         </div>
       </body>
