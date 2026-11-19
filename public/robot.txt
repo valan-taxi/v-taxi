@@ -1,0 +1,23 @@
+# ==============================================================================
+# V TAXI Official Robots.txt
+# Domain: https://vtaxi.co.in
+# Description: Tamil Nadu's Premier Local & Outstation Taxi Service
+# ==============================================================================
+
+User-agent: *
+Allow: /
+Allow: /partner
+Allow: /driver
+Allow: /assets/
+Allow: /images/
+
+# Disallow URL tracking parameters to prevent duplicate indexing
+Disallow: /*?utm_*
+Disallow: /*?fbclid=*
+Disallow: /*?gclid=*
+
+# XML Sitemap Location
+Sitemap: https://vtaxi.co.in/sitemap.xml
+
+# Canonical Host
+Host: https://vtaxi.co.in
