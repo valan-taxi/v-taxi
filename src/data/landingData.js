@@ -1,55 +1,81 @@
 // V TAXI Official Pre-Launch Data Specification
 
 export const BOOKING_OFFICE = {
-  phone1: "04362 233550",
-  phone1Raw: "04362233550",
-  phone2: "07358 233550",
-  phone2Raw: "07358233550",
+  // One common number for the Corporate Office and every Branch Office.
+  phone: "07358 233550",
+  phoneRaw: "07358233550",
   whatsapp: "917358233550",
   operatingHours: "24/7 Booking Helpline & Customer Assistance",
-  centralOffice: "Central Booking Office, Tamil Nadu, India",
+  centralOffice: "Corporate Office, Chennai, Tamil Nadu, India",
   tagline: "The People's Choice",
   brandMessage:
-    "From everyday travel to memorable journeys, V TAXI is preparing to connect people, cities and experiences across Tamil Nadu.",
+    "From everyday travel to memorable journeys, V TAXI connects people, cities and experiences across every district of Tamil Nadu.",
 };
 
-export const PRIMARY_SERVICE_AREAS = [
-  {
-    name: "Chennai",
-    tamil: "சென்னை",
-    role: "Origin & Central Hub",
-    description:
-      "City rides, airport transfers (MAA), railway station pickups, and outstation departures.",
-  },
-  {
-    name: "Trichy",
-    tamil: "திருச்சி",
-    role: "Kaveri Delta Gateway",
-    description:
-      "Connecting Rockfort, Srirangam, and central Tamil Nadu pilgrimage routes.",
-  },
-  {
-    name: "Thanjavur",
-    tamil: "தஞ்சாவூர்",
-    role: "Cultural & Heritage Corridor",
-    description:
-      "Brihadeeswarar Temple, palace visits, and delta district connectivity.",
-  },
-  {
-    name: "Madurai",
-    tamil: "மதுரை",
-    role: "Southern Commercial & Cultural Hub",
-    description:
-      "Meenakshi Amman Darshan, southern district travel, and family reunions.",
-  },
-  {
-    name: "Rameswaram",
-    tamil: "ராமேஸ்வரம்",
-    role: "Sacred Coastal Destination",
-    description:
-      "Spiritual yatras, Pamban bridge crossing, and Dhanushkodi tours.",
-  },
+// Chennai is the Corporate Office. Add the street address in `street` once
+// confirmed; it is shown on the site only when it is filled in.
+export const CORPORATE_OFFICE = {
+  id: "chennai",
+  name: "Chennai",
+  tamil: "சென்னை",
+  type: "Corporate Office",
+  street: "",
+  description:
+    "Corporate Office and statewide coordination. City rides, airport transfers (MAA), railway station pickups, and outstation departures.",
+};
+
+// Every other district is a Branch Office. [name, Tamil name]
+const BRANCH_DISTRICTS = [
+  ["Ariyalur", "அரியலூர்"],
+  ["Chengalpattu", "செங்கல்பட்டு"],
+  ["Coimbatore", "கோயம்புத்தூர்"],
+  ["Cuddalore", "கடலூர்"],
+  ["Dharmapuri", "தர்மபுரி"],
+  ["Dindigul", "திண்டுக்கல்"],
+  ["Erode", "ஈரோடு"],
+  ["Kallakurichi", "கள்ளக்குறிச்சி"],
+  ["Kancheepuram", "காஞ்சிபுரம்"],
+  ["Kanniyakumari", "கன்னியாகுமரி"],
+  ["Karur", "கரூர்"],
+  ["Krishnagiri", "கிருஷ்ணகிரி"],
+  ["Madurai", "மதுரை"],
+  ["Mayiladuthurai", "மயிலாடுதுறை"],
+  ["Nagapattinam", "நாகப்பட்டினம்"],
+  ["Namakkal", "நாமக்கல்"],
+  ["Nilgiris", "நீலகிரி"],
+  ["Perambalur", "பெரம்பலூர்"],
+  ["Pudukkottai", "புதுக்கோட்டை"],
+  ["Ramanathapuram", "இராமநாதபுரம்"],
+  ["Ranipet", "ராணிப்பேட்டை"],
+  ["Salem", "சேலம்"],
+  ["Sivagangai", "சிவகங்கை"],
+  ["Tenkasi", "தென்காசி"],
+  ["Thanjavur", "தஞ்சாவூர்"],
+  ["Theni", "தேனி"],
+  ["Thoothukudi", "தூத்துக்குடி"],
+  ["Tiruchirappalli (Trichy)", "திருச்சிராப்பள்ளி"],
+  ["Tirunelveli", "திருநெல்வேலி"],
+  ["Tirupathur", "திருப்பத்தூர்"],
+  ["Tiruppur", "திருப்பூர்"],
+  ["Tiruvallur", "திருவள்ளூர்"],
+  ["Tiruvannamalai", "திருவண்ணாமலை"],
+  ["Tiruvarur", "திருவாரூர்"],
+  ["Vellore", "வேலூர்"],
+  ["Villupuram", "விழுப்புரம்"],
+  ["Virudhunagar", "விருதுநகர்"],
 ];
+
+export const BRANCH_OFFICES = BRANCH_DISTRICTS.map(([name, tamil]) => ({
+  id: name.toLowerCase().replace(/\s*\(.*\)/, "").replace(/[^a-z]+/g, "-"),
+  name,
+  tamil,
+  type: "Branch Office",
+  street: "",
+}));
+
+// Corporate Office first, then every branch (38 districts in total).
+export const ALL_OFFICES = [CORPORATE_OFFICE, ...BRANCH_OFFICES];
+export const DISTRICT_NAMES = ALL_OFFICES.map((o) => o.name);
 
 export const TAXI_SERVICES = [
   {
@@ -226,8 +252,8 @@ export const WHY_CHOOSE_POINTS = [
     desc: "Clear upfront communication about journey details without misleading terms.",
   },
   {
-    title: "Service Across Important TN Cities",
-    desc: "Active focus across Chennai, Trichy, Thanjavur, Madurai, and Rameswaram.",
+    title: "Service Across All Tamil Nadu Districts",
+    desc: "Chennai Corporate Office with Branch Offices in every district of Tamil Nadu.",
   },
   {
     title: "Premium Travel Options",
@@ -264,8 +290,8 @@ export const LAUNCH_OFFERS = [
 
 export const FAQS = [
   {
-    q: "Which cities does V TAXI serve?",
-    a: "V TAXI is focusing on Chennai, Trichy, Thanjavur, Madurai and Rameswaram during its initial growth stage, supporting both local and outstation requirements.",
+    q: "Which districts does V TAXI serve?",
+    a: "V TAXI serves all districts of Tamil Nadu. Our Corporate Office is in Chennai, with a Branch Office in every other district, supporting both local and outstation requirements.",
   },
   {
     q: "What vehicle categories are available?",
@@ -277,7 +303,7 @@ export const FAQS = [
   },
   {
     q: "How can I make an enquiry?",
-    a: "Customers can directly call our booking office at 04362 233550 or 07358 233550, or submit the enquiry form on this page.",
+    a: "Customers can call our Corporate Office or any Branch Office on the one common number, 07358 233550, or submit the enquiry form on this page.",
   },
   {
     q: "Is the V TAXI app available?",
@@ -291,4 +317,26 @@ export const FAQS = [
     q: "Can I register for launch offers?",
     a: "Yes. Customers can register their interest through our pre-launch form to receive approved launch updates, early announcements, and introductory offers.",
   },
+];
+
+// Full postal-style address line for an office. The street part is included
+// only once it has been filled in on the office record.
+export const officeAddress = (office) =>
+  [
+    office.street,
+    `V TAXI ${office.type}`,
+    office.name,
+    "Tamil Nadu, India",
+  ]
+    .filter(Boolean)
+    .join(", ");
+
+// Districts highlighted in compact lists (hero, footer).
+export const FEATURED_DISTRICTS = [
+  "Chennai",
+  "Coimbatore",
+  "Madurai",
+  "Tiruchirappalli (Trichy)",
+  "Salem",
+  "Tirunelveli",
 ];

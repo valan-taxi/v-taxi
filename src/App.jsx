@@ -32,11 +32,9 @@ const MARQUEE_ITEMS = [
   "Temple & Pilgrimage Tours",
   "Family Travel",
   "Corporate Travel",
-  "Chennai",
-  "Trichy",
-  "Thanjavur",
-  "Madurai",
-  "Rameswaram",
+  "Corporate Office Chennai",
+  "Branch Offices in All Districts",
+  "All Tamil Nadu",
 ];
 
 const ROUTES = {

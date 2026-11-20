@@ -30,7 +30,7 @@ export default function StickyMobileBar({ onOpenEnquiry }) {
       }`}
     >
       <a
-        href={`tel:${BOOKING_OFFICE.phone1Raw}`}
+        href={`tel:${BOOKING_OFFICE.phoneRaw}`}
         aria-label="Call the V TAXI booking office"
         className={`${fab} bg-white ring-1 ring-slate-900/10`}
       >

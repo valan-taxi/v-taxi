@@ -31,9 +31,9 @@ const PAGES = [
   },
   {
     folder: "service-areas",
-    title: "Service Areas Across Tamil Nadu | Chennai, Trichy, Thanjavur, Madurai, Rameswaram | V TAXI",
+    title: "Offices Across Tamil Nadu | Chennai Corporate Office & All District Branches | V TAXI",
     description:
-      "V TAXI operates across Tamil Nadu connecting Chennai, Trichy, Thanjavur, Madurai, and Rameswaram with reliable 24/7 taxi booking.",
+      "V TAXI operates across all Tamil Nadu districts: Corporate Office in Chennai and a Branch Office in every district, all reachable on 07358 233550, 24/7.",
     url: "https://vtaxi.co.in/service-areas",
   },
   {
@@ -47,14 +47,14 @@ const PAGES = [
     folder: "partner",
     title: "Become a Partner | Attach Your Fleet with V TAXI Tamil Nadu",
     description:
-      "Own taxis? Join V TAXI as a fleet partner and serve local, outstation, airport and pilgrimage travellers across Chennai, Trichy, Thanjavur, Madurai and Rameswaram.",
+      "Own taxis? Join V TAXI as a fleet partner and serve local, outstation, airport and pilgrimage travellers across all districts of Tamil Nadu.",
     url: "https://vtaxi.co.in/partner",
   },
   {
     folder: "driver",
     title: "Become a Driver | Drive with V TAXI Tamil Nadu",
     description:
-      "Don't own a car? Join V TAXI as a professional chauffeur. Receive training, guidance, and drive for a trusted brand across Chennai, Trichy, Thanjavur, Madurai and Rameswaram.",
+      "Don't own a car? Join V TAXI as a professional chauffeur. Receive training, guidance, and drive for a trusted brand across all districts of Tamil Nadu.",
     url: "https://vtaxi.co.in/driver",
   },
   {
@@ -75,7 +75,7 @@ const PAGES = [
     folder: "contact",
     title: "Contact Us & 24/7 Booking Helpline | V TAXI Tamil Nadu",
     description:
-      "Get in touch with the V TAXI central booking office. Call 04362 233550 or 07358 233550 for fast quotes, reservations, and customer assistance.",
+      "Get in touch with the V TAXI Corporate Office in Chennai or any district Branch Office. Call 07358 233550 for fast quotes, reservations, and customer assistance.",
     url: "https://vtaxi.co.in/contact",
   },
 ];

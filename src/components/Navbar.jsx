@@ -17,10 +17,7 @@ const NAV_LINKS = [
   ["home", "Home"],
   ["services", "Services"],
   ["vehicles", "Vehicles"],
-  ["service-areas", "Service Areas"],
-  ["why-v-taxi", "Why V TAXI"],
   ["launch-offers", "Launch Offers"],
-  ["coming-soon", "Coming Soon"],
   ["contact", "Contact"],
 ];
 
@@ -109,27 +106,19 @@ export default function Navbar({ onOpenEnquiry }) {
               Official Pre-Launch
             </span>
             <span className="hidden text-slate-400 sm:inline">
-              Chennai · Trichy · Thanjavur · Madurai · Rameswaram
+              Corporate Office Chennai · Branches in all Tamil Nadu districts
             </span>
           </div>
           <div className="flex items-center gap-3">
             <span className="hidden text-slate-400 md:inline">
-              Booking office
+              All offices
             </span>
             <a
-              href={`tel:${BOOKING_OFFICE.phone1Raw}`}
+              href={`tel:${BOOKING_OFFICE.phoneRaw}`}
               className="flex items-center gap-1.5 font-semibold text-slate-700 transition hover:text-crimson-600"
             >
               <Phone className="h-3 w-3 text-crimson-500" />
-              {BOOKING_OFFICE.phone1}
-            </a>
-            <span className="hidden text-slate-300 sm:inline">|</span>
-            <a
-              href={`tel:${BOOKING_OFFICE.phone2Raw}`}
-              className="hidden items-center gap-1.5 font-semibold text-slate-700 transition hover:text-crimson-600 sm:flex"
-            >
-              <Phone className="h-3 w-3 text-crimson-500" />
-              {BOOKING_OFFICE.phone2}
+              {BOOKING_OFFICE.phone}
             </a>
           </div>
         </div>
@@ -218,7 +207,7 @@ export default function Navbar({ onOpenEnquiry }) {
 
           <div className="hidden items-center gap-2.5 sm:flex">
             <a
-              href={`tel:${BOOKING_OFFICE.phone2Raw}`}
+              href={`tel:${BOOKING_OFFICE.phoneRaw}`}
               className="flex items-center gap-1.5 whitespace-nowrap rounded-xl border border-slate-200 px-3.5 py-2.5 text-xs font-bold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 xl:hidden 2xl:flex"
             >
               <Phone className="h-3.5 w-3.5 text-crimson-600" />
@@ -322,15 +311,15 @@ export default function Navbar({ onOpenEnquiry }) {
             <div className="flex items-center justify-between rounded-xl bg-slate-50 px-3.5 py-2.5 text-xs">
               <span className="text-slate-500">Booking office</span>
               <a
-                href={`tel:${BOOKING_OFFICE.phone1Raw}`}
+                href={`tel:${BOOKING_OFFICE.phoneRaw}`}
                 className="font-bold text-navy-900"
               >
-                {BOOKING_OFFICE.phone1}
+                {BOOKING_OFFICE.phone}
               </a>
             </div>
             <div className="grid grid-cols-2 gap-2.5">
               <a
-                href={`tel:${BOOKING_OFFICE.phone1Raw}`}
+                href={`tel:${BOOKING_OFFICE.phoneRaw}`}
                 className="flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 py-3 text-xs font-bold text-slate-700"
               >
                 <Phone className="h-3.5 w-3.5 text-crimson-600" />

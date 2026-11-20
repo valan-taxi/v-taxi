@@ -200,11 +200,11 @@ export function JoinHero({
                   </button>
                 </Magnetic>
                 <a
-                  href={`tel:${BOOKING_OFFICE.phone1Raw}`}
+                  href={`tel:${BOOKING_OFFICE.phoneRaw}`}
                   className="flex items-center justify-center gap-2 rounded-2xl border border-white/30 bg-white/10 px-6 py-4 text-sm font-bold text-white backdrop-blur-md transition hover:bg-white/20"
                 >
                   <Phone className="h-4 w-4 text-amber-300" />
-                  {BOOKING_OFFICE.phone1}
+                  {BOOKING_OFFICE.phone}
                 </a>
               </div>
             </Reveal>
@@ -447,19 +447,12 @@ export function ApplySection({ eyebrow, title, accent, description, children }) 
         </Reveal>
         <Reveal variant="fade" delay={150}>
           <p className="mt-6 text-center text-xs text-slate-500">
-            Prefer to talk? Call our booking office on{" "}
+            Prefer to talk? Call your nearest V TAXI office on{" "}
             <a
-              href={`tel:${BOOKING_OFFICE.phone1Raw}`}
+              href={`tel:${BOOKING_OFFICE.phoneRaw}`}
               className="font-bold text-crimson-600 hover:underline"
             >
-              {BOOKING_OFFICE.phone1}
-            </a>{" "}
-            or{" "}
-            <a
-              href={`tel:${BOOKING_OFFICE.phone2Raw}`}
-              className="font-bold text-crimson-600 hover:underline"
-            >
-              {BOOKING_OFFICE.phone2}
+              {BOOKING_OFFICE.phone}
             </a>
             .
           </p>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Send, CheckCircle2, Phone, MessageSquare } from "lucide-react";
 import confetti from "canvas-confetti";
-import { BOOKING_OFFICE, PRIMARY_SERVICE_AREAS } from "../data/landingData";
+import { BOOKING_OFFICE, ALL_OFFICES } from "../data/landingData";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 import { GroupTitle, SelectField, TextField, textareaBase } from "./formUI";
@@ -11,7 +11,7 @@ export default function EnquiryForm({ initialData = null }) {
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
   const [pickupCity, setPickupCity] = useState("Chennai");
-  const [destination, setDestination] = useState("Trichy");
+  const [destination, setDestination] = useState("Madurai");
   const [travelDate, setTravelDate] = useState("");
   const [tripType, setTripType] = useState("One Way");
   const [preferredVehicle, setPreferredVehicle] = useState("7-Seater SUV");
@@ -111,7 +111,7 @@ export default function EnquiryForm({ initialData = null }) {
                       value={pickupCity}
                       onChange={(e) => setPickupCity(e.target.value)}
                     >
-                      {PRIMARY_SERVICE_AREAS.map((a) => (
+                      {ALL_OFFICES.map((a) => (
                         <option key={a.name} value={a.name}>
                           {a.name}
                         </option>
@@ -126,14 +126,12 @@ export default function EnquiryForm({ initialData = null }) {
                       value={destination}
                       onChange={(e) => setDestination(e.target.value)}
                     >
-                      {PRIMARY_SERVICE_AREAS.map((a) => (
+                      {ALL_OFFICES.map((a) => (
                         <option key={a.name} value={a.name}>
                           {a.name}
                         </option>
                       ))}
                       <option value="Kumbakonam">Kumbakonam</option>
-                      <option value="Tirunelveli">Tirunelveli</option>
-                      <option value="Dindigul">Dindigul</option>
                       <option value="Other Destination">
                         Other Destination
                       </option>
@@ -247,11 +245,11 @@ export default function EnquiryForm({ initialData = null }) {
 
               <div className="mx-auto mt-7 flex max-w-sm flex-col gap-2.5 sm:flex-row">
                 <a
-                  href={`tel:${BOOKING_OFFICE.phone1Raw}`}
+                  href={`tel:${BOOKING_OFFICE.phoneRaw}`}
                   className="flex h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-navy-900 text-xs font-bold text-white transition hover:bg-navy-800"
                 >
                   <Phone className="h-4 w-4 text-crimson-400" />
-                  Call {BOOKING_OFFICE.phone1}
+                  Call {BOOKING_OFFICE.phone}
                 </a>
                 <a
                   href={waHref}

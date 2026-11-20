@@ -69,8 +69,9 @@ export default function BrandIntro() {
                 <p className="font-medium text-slate-800 text-lg sm:text-xl text-balance">
                   V TAXI is a growing Tamil Nadu taxi brand created to make
                   local and outstation journeys more comfortable, convenient and
-                  dependable. Beginning from Chennai, we are expanding across
-                  Trichy, Thanjavur, Madurai and Rameswaram.
+                  dependable. Headquartered in Chennai as our Corporate Office,
+                  we serve every district of Tamil Nadu through our Branch
+                  Offices.
                 </p>
                 <p className="text-slate-600 text-sm sm:text-base">
                   With vehicle options for individuals, families and premium

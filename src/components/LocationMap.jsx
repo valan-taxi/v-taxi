@@ -1,6 +1,10 @@
 import React from "react";
 import { MapPin, Phone, Clock, Navigation, ExternalLink } from "lucide-react";
-import { BOOKING_OFFICE } from "../data/landingData";
+import {
+  BOOKING_OFFICE,
+  CORPORATE_OFFICE,
+  officeAddress,
+} from "../data/landingData";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 
@@ -9,12 +13,12 @@ export default function LocationMap() {
     <section className="py-20 sm:py-28 bg-white relative border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="Office & Location"
+          eyebrow="Corporate Office"
           icon={MapPin}
           tone="slate"
-          title="Booking office"
-          accent="& operations"
-          description="Reach out to our booking team or visit our central coordination office in Tamil Nadu."
+          title="Chennai"
+          accent="Corporate Office"
+          description="Our Corporate Office coordinates every Branch Office across Tamil Nadu. Call the one common number to reach any office."
           className="mb-12"
         />
 
@@ -25,13 +29,13 @@ export default function LocationMap() {
             <div className="space-y-6">
               <div>
                 <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-crimson-600 bg-crimson-50 px-2.5 py-1 rounded">
-                  HEADQUARTERS & BOOKING DESK
+                  CORPORATE OFFICE • CHENNAI
                 </span>
                 <h3 className="text-2xl font-black text-navy-900 mt-2">
-                  V TAXI Booking Office
+                  V TAXI Corporate Office
                 </h3>
                 <p className="text-xs text-slate-500 font-medium mt-0.5">
-                  The People's Choice • Tamil Nadu, India
+                  The People's Choice • Chennai, Tamil Nadu
                 </p>
               </div>
 
@@ -43,11 +47,10 @@ export default function LocationMap() {
                   </div>
                   <div>
                     <span className="font-bold text-navy-900 block">
-                      Central Booking Address:
+                      Corporate Office Address:
                     </span>
                     <span className="text-slate-600 leading-relaxed block">
-                      V TAXI Booking Center, Central Corridor Road, Tamil Nadu,
-                      India.
+                      {officeAddress(CORPORATE_OFFICE)}
                     </span>
                   </div>
                 </div>
@@ -58,20 +61,14 @@ export default function LocationMap() {
                   </div>
                   <div>
                     <span className="font-bold text-navy-900 block">
-                      Booking Helpline Numbers:
+                      Common Helpline (all offices):
                     </span>
                     <div className="flex flex-col gap-1 pt-0.5 font-mono">
                       <a
-                        href={`tel:${BOOKING_OFFICE.phone1Raw}`}
+                        href={`tel:${BOOKING_OFFICE.phoneRaw}`}
                         className="text-crimson-700 font-bold hover:underline"
                       >
-                        {BOOKING_OFFICE.phone1}
-                      </a>
-                      <a
-                        href={`tel:${BOOKING_OFFICE.phone2Raw}`}
-                        className="text-crimson-700 font-bold hover:underline"
-                      >
-                        {BOOKING_OFFICE.phone2}
+                        {BOOKING_OFFICE.phone}
                       </a>
                     </div>
                   </div>
@@ -96,13 +93,13 @@ export default function LocationMap() {
             {/* Direction Action */}
             <div className="pt-6 border-t border-slate-200">
               <a
-                href="https://maps.google.com"
+                href="https://www.google.com/maps/search/?api=1&query=V+TAXI+Chennai+Tamil+Nadu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-shine w-full py-3 px-4 rounded-xl bg-navy-900 hover:bg-navy-800 text-white font-bold text-xs flex items-center justify-center gap-2 transition shadow-sm"
               >
                 <Navigation className="w-4 h-4 text-amber-400" />
-                <span>Get Directions via Google Maps</span>
+                <span>Get Directions to Chennai Office</span>
                 <ExternalLink className="w-3.5 h-3.5 opacity-60" />
               </a>
             </div>
@@ -111,8 +108,8 @@ export default function LocationMap() {
           {/* Right Column: Google Maps Interactive Viewport */}
           <div className="lg:col-span-7 bg-slate-200 min-h-[350px] relative flex items-center justify-center overflow-hidden">
             <iframe
-              title="V TAXI Office Location Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.8899878262777!2d79.1350!3d10.7870!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ3JzEzLjIiTiA3OcKwMDgnMDYuMCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+              title="V TAXI Chennai Corporate Office Location Map"
+              src="https://www.google.com/maps?q=Chennai,+Tamil+Nadu&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: "380px" }}
@@ -123,7 +120,7 @@ export default function LocationMap() {
 
             <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-200 shadow-md text-[11px] font-bold text-navy-900 flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-              <span>Verified Location Desk</span>
+              <span>Corporate Office</span>
             </div>
           </div>
         </Reveal>

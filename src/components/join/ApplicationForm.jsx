@@ -281,11 +281,11 @@ export default function ApplicationForm({
 
         <div className="mx-auto mt-7 flex max-w-sm flex-col gap-2.5 sm:flex-row">
           <a
-            href={`tel:${BOOKING_OFFICE.phone1Raw}`}
+            href={`tel:${BOOKING_OFFICE.phoneRaw}`}
             className="flex h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-navy-900 text-xs font-bold text-white transition hover:bg-navy-800"
           >
             <Phone className="h-4 w-4 text-crimson-400" />
-            Call {BOOKING_OFFICE.phone1}
+            Call {BOOKING_OFFICE.phone}
           </a>
           <a
             href={waHref}

@@ -8,7 +8,11 @@ import {
   Sparkles,
   ChevronDown,
 } from "lucide-react";
-import { BOOKING_OFFICE, PRIMARY_SERVICE_AREAS } from "../data/landingData";
+import {
+  BOOKING_OFFICE,
+  ALL_OFFICES,
+  FEATURED_DISTRICTS,
+} from "../data/landingData";
 import Reveal from "./Reveal";
 import Magnetic from "./Magnetic";
 import Spotlight from "./Spotlight";
@@ -126,11 +130,11 @@ export default function Hero({ onOpenEnquiry }) {
                 </Magnetic>
 
                 <a
-                  href={`tel:${BOOKING_OFFICE.phone1Raw}`}
+                  href={`tel:${BOOKING_OFFICE.phoneRaw}`}
                   className="flex items-center justify-center gap-2 px-6 py-4 rounded-2xl border-2 border-white/40 bg-white/10 hover:bg-white/20 text-white font-bold text-sm sm:text-base backdrop-blur-sm transition"
                 >
                   <Phone className="w-4 h-4 text-amber-300" />
-                  <span>Call {BOOKING_OFFICE.phone1}</span>
+                  <span>Call {BOOKING_OFFICE.phone}</span>
                 </a>
               </div>
             </Reveal>
@@ -168,19 +172,19 @@ export default function Hero({ onOpenEnquiry }) {
                       </span>
                       <div className="flex items-center justify-between">
                         <span className="text-xl font-black tracking-tight font-mono text-navy-900">
-                          {BOOKING_OFFICE.phone1}
+                          {BOOKING_OFFICE.phone}
                         </span>
                         <a
-                          href={`tel:${BOOKING_OFFICE.phone1Raw}`}
+                          href={`tel:${BOOKING_OFFICE.phoneRaw}`}
                           className="btn-shine text-xs font-bold px-3.5 py-2 rounded-lg bg-crimson-600 hover:bg-crimson-700 text-white shadow-sm transition"
                         >
                           Call Now
                         </a>
                       </div>
-                      <div className="flex items-center justify-between text-xs text-slate-500 font-mono pt-1.5 border-t border-slate-200">
-                        <span>{BOOKING_OFFICE.phone2}</span>
+                      <div className="flex items-center justify-between text-xs text-slate-500 pt-1.5 border-t border-slate-200">
+                        <span>One call for every office</span>
                         <span className="text-[10px] text-slate-400">
-                          Secondary line
+                          Chennai + all districts
                         </span>
                       </div>
                     </div>
@@ -188,17 +192,20 @@ export default function Hero({ onOpenEnquiry }) {
                     <div className="space-y-2">
                       <span className="text-[10px] uppercase tracking-widest font-bold text-slate-500 flex items-center gap-1.5">
                         <MapPin className="w-3.5 h-3.5 text-crimson-600" />
-                        Popular corridors
+                        Offices across Tamil Nadu
                       </span>
                       <div className="flex flex-wrap gap-1.5">
-                        {PRIMARY_SERVICE_AREAS.map((area) => (
+                        {FEATURED_DISTRICTS.map((name) => (
                           <span
-                            key={area.name}
+                            key={name}
                             className="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200 text-slate-700"
                           >
-                            {area.name}
+                            {name.replace(/\s*\(.*\)/, "")}
                           </span>
                         ))}
+                        <span className="text-[11px] font-bold px-2.5 py-1 rounded-lg bg-crimson-50 border border-crimson-200 text-crimson-700">
+                          +{ALL_OFFICES.length - FEATURED_DISTRICTS.length} more districts
+                        </span>
                       </div>
                     </div>
 

@@ -1,168 +1,190 @@
-import React from "react";
-import { MapPin, ArrowRight } from "lucide-react";
-import { PRIMARY_SERVICE_AREAS } from "../data/landingData";
+import React, { useMemo, useState } from "react";
+import {
+  MapPin,
+  Phone,
+  Search,
+  ArrowRight,
+  Building2,
+  Store,
+} from "lucide-react";
+import {
+  BOOKING_OFFICE,
+  CORPORATE_OFFICE,
+  BRANCH_OFFICES,
+  ALL_OFFICES,
+  officeAddress,
+} from "../data/landingData";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
-import Spotlight from "./Spotlight";
 
-const DESTINATION_IMAGES = {
-  Chennai: "/images/destinations/chennai.webp",
-  Trichy: "/images/destinations/trichy.webp",
-  Thanjavur: "/images/services/pilgrimage-travel.webp",
-  Madurai: "/images/services/tour-packages.webp",
-  Rameswaram: "/images/journeys/outstation-highway.webp",
-};
+function CallButton({ className = "" }) {
+  return (
+    <a
+      href={`tel:${BOOKING_OFFICE.phoneRaw}`}
+      className={`inline-flex items-center justify-center gap-1.5 rounded-xl bg-crimson-600 px-3.5 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-crimson-700 ${className}`}
+    >
+      <Phone className="h-3.5 w-3.5" />
+      <span className="font-mono">{BOOKING_OFFICE.phone}</span>
+    </a>
+  );
+}
+
+function BranchCard({ office, onOpenEnquiry }) {
+  return (
+    <div className="lift flex h-full flex-col justify-between gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-all hover:border-crimson-300 hover:bg-white hover:shadow-card-soft">
+      <div className="space-y-2">
+        <div className="flex items-start justify-between gap-2">
+          <div className="min-w-0">
+            <h3 className="font-display text-base text-navy-900">
+              {office.name}
+            </h3>
+            <span className="text-xs text-slate-500">{office.tamil}</span>
+          </div>
+          <span className="flex-shrink-0 rounded border border-amber-200 bg-amber-50 px-2 py-0.5 font-mono text-[10px] font-bold uppercase text-amber-700">
+            Branch
+          </span>
+        </div>
+        <p className="flex items-start gap-1.5 text-xs leading-relaxed text-slate-600">
+          <MapPin className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-crimson-500" />
+          <span>{officeAddress(office)}</span>
+        </p>
+      </div>
+      <div className="flex flex-col gap-2 sm:flex-row">
+        <CallButton className="flex-1" />
+        <button
+          onClick={() => onOpenEnquiry({ pickupCity: office.name })}
+          className="flex flex-1 items-center justify-center gap-1 rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs font-bold text-slate-800 transition hover:border-crimson-600 hover:bg-crimson-600 hover:text-white"
+        >
+          Enquire
+          <ArrowRight className="h-3.5 w-3.5" />
+        </button>
+      </div>
+    </div>
+  );
+}
 
 export default function ServiceAreas({ onOpenEnquiry }) {
+  const [query, setQuery] = useState("");
+
+  const branches = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return BRANCH_OFFICES;
+    return BRANCH_OFFICES.filter(
+      (o) => o.name.toLowerCase().includes(q) || o.tamil.includes(q)
+    );
+  }, [query]);
+
   return (
     <section
       id="service-areas"
-      className="py-20 sm:py-28 bg-white relative overflow-hidden"
+      className="relative overflow-hidden bg-white py-20 sm:py-28"
     >
-      <div className="absolute inset-0 bg-dots opacity-40 pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="pointer-events-none absolute inset-0 bg-dots opacity-40" />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="Service Areas"
+          eyebrow="Our Offices"
           icon={MapPin}
-          title="Growing across"
+          title="Serving every district of"
           accent="Tamil Nadu"
-          description="Focusing on Tamil Nadu’s key residential, industrial, cultural and spiritual centers."
+          description={`Corporate Office in Chennai and a Branch Office in each of the other ${BRANCH_OFFICES.length} districts. One common number reaches every office.`}
           className="mb-12"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Corridor visual */}
-          <div className="lg:col-span-5 lg:sticky lg:top-28">
-            <Reveal variant="left">
-              <div className="bg-ink text-white rounded-[28px] p-6 sm:p-8 relative shadow-2xl overflow-hidden ring-gradient">
-                <img
-                  src="/images/backgrounds/vehicle-section-dark.webp"
-                  alt=""
-                  className="absolute inset-0 w-full h-full object-cover object-center opacity-20 mix-blend-luminosity"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-ink/90 via-[#1f0606]/80 to-ink" />
-                <div className="absolute inset-0 bg-grid-dark opacity-60" />
-
-                <div className="relative">
-                  <div className="flex items-center justify-between pb-4 border-b border-white/10">
-                    <span className="text-[11px] font-mono font-bold tracking-widest text-amber-400 uppercase">
-                      Tamil Nadu Corridor
-                    </span>
-                    <span className="text-xs text-slate-400 font-medium">
-                      5 Core Hubs
-                    </span>
-                  </div>
-
-                  <div className="py-6">
-                    <div className="w-full max-w-xs mx-auto space-y-4 relative">
-                      <div className="absolute top-4 bottom-4 left-6 w-0.5 bg-gradient-to-b from-crimson-500 via-amber-400 to-crimson-600 opacity-60" />
-                      {PRIMARY_SERVICE_AREAS.map((area, idx) => (
-                        <Reveal
-                          key={area.name}
-                          delay={idx * 90}
-                          variant="up"
-                          y={14}
-                        >
-                          <div className="relative flex items-center gap-4 group">
-                            <div className="w-12 h-12 rounded-2xl bg-white/5 border-2 border-crimson-500 flex items-center justify-center font-mono font-bold text-xs z-10 group-hover:scale-110 transition-transform">
-                              0{idx + 1}
-                            </div>
-                            <div className="bg-white/[0.04] p-3 rounded-xl border border-white/10 flex-1 flex items-center justify-between">
-                              <div>
-                                <h4 className="text-sm font-bold">
-                                  {area.name}
-                                </h4>
-                                <span className="text-[11px] text-slate-400">
-                                  {area.tamil}
-                                </span>
-                              </div>
-                              <span className="text-[10px] text-amber-400 font-mono font-bold bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20">
-                                {area.role.split(" ")[0]}
-                              </span>
-                            </div>
-                          </div>
-                        </Reveal>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
-                    <span>Local &amp; outstation hubs</span>
-                    <span className="text-emerald-400 font-bold">
-                      Active rollout
-                    </span>
-                  </div>
-                </div>
+        {/* Corporate office */}
+        <Reveal variant="up" y={24}>
+          <div className="ring-gradient relative overflow-hidden rounded-[28px] bg-ink p-6 text-white shadow-2xl sm:p-9">
+            <div className="absolute inset-0 bg-gradient-to-br from-ink via-[#1f0606] to-ink" />
+            <div className="bg-grid-dark absolute inset-0 opacity-50" />
+            <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+              <div className="space-y-3">
+                <span className="inline-flex items-center gap-1.5 rounded bg-amber-400/10 px-2.5 py-1 font-mono text-[11px] font-bold uppercase tracking-widest text-amber-400 ring-1 ring-amber-400/30">
+                  <Building2 className="h-3.5 w-3.5" />
+                  Corporate Office
+                </span>
+                <h3 className="font-display text-3xl">
+                  Chennai{" "}
+                  <span className="font-sans text-lg font-normal text-slate-400">
+                    ({CORPORATE_OFFICE.tamil})
+                  </span>
+                </h3>
+                <p className="max-w-xl text-sm leading-relaxed text-slate-300">
+                  {CORPORATE_OFFICE.description}
+                </p>
+                <p className="flex items-start gap-2 text-sm text-slate-300">
+                  <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-crimson-400" />
+                  <span>{officeAddress(CORPORATE_OFFICE)}</span>
+                </p>
               </div>
-            </Reveal>
+              <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+                <a
+                  href={`tel:${BOOKING_OFFICE.phoneRaw}`}
+                  className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-crimson-600 px-6 py-3.5 font-mono text-base font-bold text-white shadow-glow-crimson transition hover:brightness-110"
+                >
+                  <Phone className="h-4 w-4" />
+                  {BOOKING_OFFICE.phone}
+                </a>
+                <button
+                  onClick={() =>
+                    onOpenEnquiry({ pickupCity: CORPORATE_OFFICE.name })
+                  }
+                  className="flex items-center justify-center gap-1.5 rounded-xl border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-white/10"
+                >
+                  Enquire Chennai
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
           </div>
+        </Reveal>
 
-          {/* Detail cards */}
-          <div className="lg:col-span-7 space-y-4">
-            {PRIMARY_SERVICE_AREAS.map((area, idx) => {
-              const photo =
-                DESTINATION_IMAGES[area.name] ||
-                "/images/destinations/chennai.webp";
-              return (
-                <Reveal key={area.name} delay={idx * 70} variant="right">
-                  <Spotlight className="lift group bg-slate-50 hover:bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 hover:border-crimson-300 hover:shadow-card-soft flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all">
-                    {/* Destination Thumbnail */}
-                    <div className="w-full sm:w-28 sm:h-24 h-36 rounded-xl overflow-hidden flex-shrink-0 relative bg-slate-200">
-                      <img
-                        src={photo}
-                        alt={`V TAXI cabs and outstation taxi service in ${area.name} (${area.tamil})`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                        decoding="async"
-                        width="160"
-                        height="120"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
-                      <span className="sm:hidden absolute top-2 left-2 text-[10px] font-mono font-bold text-white bg-crimson-600/90 px-2 py-0.5 rounded">
-                        ZONE 0{idx + 1}
-                      </span>
-                    </div>
-
-                    <div className="space-y-1.5 flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span className="hidden sm:inline-block text-xs font-mono font-bold text-crimson-600 bg-crimson-50 px-2 py-0.5 rounded border border-crimson-100">
-                          ZONE 0{idx + 1}
-                        </span>
-                        <h3 className="text-lg font-display text-navy-900 group-hover:text-crimson-600 transition-colors">
-                          {area.name}{" "}
-                          <span className="text-slate-500 font-normal text-sm font-sans">
-                            ({area.tamil})
-                          </span>
-                        </h3>
-                      </div>
-                      <p className="text-[11px] font-bold uppercase tracking-wide text-slate-400">
-                        {area.role}
-                      </p>
-                      <p className="text-xs text-slate-600 leading-relaxed">
-                        {area.description}
-                      </p>
-                    </div>
-
-                    <button
-                      onClick={() => onOpenEnquiry({ pickupCity: area.name })}
-                      className="flex-shrink-0 w-full sm:w-auto px-4 py-2 rounded-xl bg-white hover:bg-crimson-600 hover:text-white border border-slate-300 hover:border-crimson-600 text-slate-800 font-bold text-xs transition flex items-center justify-center gap-1 group shadow-sm"
-                    >
-                      <span>Enquire {area.name}</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                  </Spotlight>
-                </Reveal>
-              );
-            })}
-
-            <p className="text-xs text-slate-500 pt-1">
-              Planning travel to another destination in Tamil Nadu? We also
-              arrange customized multi-city itineraries.
-            </p>
+        {/* Branch offices */}
+        <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-widest text-crimson-600">
+              <Store className="h-3.5 w-3.5" />
+              Branch Offices
+            </span>
+            <h3 className="mt-1 font-display text-2xl text-navy-900">
+              {BRANCH_OFFICES.length} district branches
+              <span className="ml-2 font-sans text-sm font-normal text-slate-500">
+                · all on {BOOKING_OFFICE.phone}
+              </span>
+            </h3>
           </div>
+          <label className="relative block w-full sm:w-72">
+            <span className="sr-only">Search district</span>
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search your district"
+              className="w-full rounded-xl border border-slate-300 bg-white py-2.5 pl-9 pr-3 text-sm text-slate-800 outline-none transition focus:border-crimson-500 focus:ring-2 focus:ring-crimson-100"
+            />
+          </label>
         </div>
+
+        {branches.length ? (
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {branches.map((office) => (
+              <BranchCard
+                key={office.id}
+                office={office}
+                onOpenEnquiry={onOpenEnquiry}
+              />
+            ))}
+          </div>
+        ) : (
+          <p className="mt-6 rounded-2xl border border-dashed border-slate-300 p-6 text-center text-sm text-slate-500">
+            No district matches “{query}”. Call {BOOKING_OFFICE.phone} and we
+            will connect you to the right office.
+          </p>
+        )}
+
+        <p className="pt-6 text-xs text-slate-500">
+          {ALL_OFFICES.length} offices across Tamil Nadu. Travelling somewhere
+          else? We also arrange customized multi-district itineraries.
+        </p>
       </div>
     </section>
   );

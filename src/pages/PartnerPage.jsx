@@ -20,7 +20,7 @@ import {
   Wallet,
   Wrench,
 } from "lucide-react";
-import { PRIMARY_SERVICE_AREAS } from "../data/landingData";
+import { ALL_OFFICES } from "../data/landingData";
 import { usePageMeta } from "../hooks/usePageMeta";
 import ApplicationForm, { v } from "../components/join/ApplicationForm";
 import {
@@ -34,7 +34,7 @@ import {
   StepsTimeline,
 } from "../components/join/JoinSections";
 
-const CITIES = [...PRIMARY_SERVICE_AREAS.map((a) => a.name), "Other Tamil Nadu City"];
+const CITIES = [...ALL_OFFICES.map((a) => a.name), "Other Tamil Nadu City"];
 
 const FIELDS = [
   {
@@ -67,12 +67,12 @@ const FIELDS = [
   },
   {
     name: "city",
-    label: "Your city",
+    label: "Your district",
     required: true,
     type: "select",
-    placeholder: "Select city",
+    placeholder: "Select district",
     options: CITIES,
-    validate: v.select("your city"),
+    validate: v.select("your district"),
   },
   {
     name: "cabs",
@@ -98,7 +98,7 @@ const FIELDS = [
 const HERO_CHIPS = [
   { icon: Car, label: "Sedan · SUV · Traveller" },
   { icon: Clock3, label: "24/7 booking desk" },
-  { icon: MapPin, label: "Chennai · Trichy · Madurai" },
+  { icon: MapPin, label: "All Tamil Nadu districts" },
 ];
 
 const HERO_HIGHLIGHTS = [
@@ -223,7 +223,7 @@ const FAQS = [
   },
   {
     q: "Which cities are you onboarding in?",
-    a: "We are currently preparing Chennai, Trichy, Thanjavur, Madurai and Rameswaram. If you are elsewhere in Tamil Nadu, choose 'Other Tamil Nadu City' and we will keep you informed.",
+    a: "We operate across all Tamil Nadu districts, with our Corporate Office in Chennai and a Branch Office in every other district. Choose your district and your nearest office will get in touch.",
   },
   {
     q: "What happens after I apply?",
@@ -234,7 +234,7 @@ const FAQS = [
 export default function PartnerPage() {
   usePageMeta(
     "Become a Partner | Attach Your Fleet with V TAXI Tamil Nadu",
-    "Own taxis? Join V TAXI as a fleet partner and serve local, outstation, airport and pilgrimage travellers across Chennai, Trichy, Thanjavur, Madurai and Rameswaram.",
+    "Own taxis? Join V TAXI as a fleet partner and serve local, outstation, airport and pilgrimage travellers across all districts of Tamil Nadu.",
     { path: "/partner" }
   );
 
@@ -251,6 +251,23 @@ export default function PartnerPage() {
         highlights={HERO_HIGHLIGHTS}
         primaryLabel="Apply as a partner"
       />
+
+      <ApplySection
+        eyebrow="Partner application"
+        title="Submit your"
+        accent="application"
+        description="Tell us a little about you and your fleet. Our onboarding team will get in touch."
+      >
+        <ApplicationForm
+          kind="partner"
+          fields={FIELDS}
+          submitLabel="Submit partner application"
+          consentLabel="I agree to V TAXI's partner rules and privacy policy, and allow V TAXI or its representatives to contact me by phone, SMS, WhatsApp or email about this application."
+          successTitle="Application received"
+          successText="Thank you for your interest in partnering with V TAXI. Our onboarding team will review your details and contact you shortly."
+          whatsappIntro="Hi V TAXI, I just applied as a fleet PARTNER on your website."
+        />
+      </ApplySection>
 
       <IntroBlock
         eyebrow="Partner with V TAXI"
@@ -288,23 +305,6 @@ export default function PartnerPage() {
         items={REQUIREMENTS}
         note="The exact document checklist is confirmed by our onboarding team during verification."
       />
-
-      <ApplySection
-        eyebrow="Partner application"
-        title="Submit your"
-        accent="application"
-        description="Tell us a little about you and your fleet. Our onboarding team will get in touch."
-      >
-        <ApplicationForm
-          kind="partner"
-          fields={FIELDS}
-          submitLabel="Submit partner application"
-          consentLabel="I agree to V TAXI's partner rules and privacy policy, and allow V TAXI or its representatives to contact me by phone, SMS, WhatsApp or email about this application."
-          successTitle="Application received"
-          successText="Thank you for your interest in partnering with V TAXI. Our onboarding team will review your details and contact you shortly."
-          whatsappIntro="Hi V TAXI, I just applied as a fleet PARTNER on your website."
-        />
-      </ApplySection>
 
       <FaqAccordion
         eyebrow="Partner FAQ"

@@ -3,7 +3,8 @@ import { Phone, MapPin, ShieldCheck, MessageSquare, X } from "lucide-react";
 import { InstagramIcon, FacebookIcon } from "./SocialIcons";
 import {
   BOOKING_OFFICE,
-  PRIMARY_SERVICE_AREAS,
+  ALL_OFFICES,
+  FEATURED_DISTRICTS,
   TAXI_SERVICES,
 } from "../data/landingData";
 import Reveal from "./Reveal";
@@ -48,12 +49,12 @@ export default function Footer({ onOpenEnquiry }) {
             <div className="pt-2 space-y-2 text-slate-300">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-crimson-500 flex-shrink-0" />
-                <span>Central Booking Office, Tamil Nadu, India</span>
+                <span>Corporate Office: Chennai &bull; Branch Offices: All Tamil Nadu Districts</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-amber-400 flex-shrink-0" />
                 <span>
-                  Helpline: {BOOKING_OFFICE.phone1} | {BOOKING_OFFICE.phone2}
+                  Helpline (all offices): {BOOKING_OFFICE.phone}
                 </span>
               </div>
             </div>
@@ -116,10 +117,10 @@ export default function Footer({ onOpenEnquiry }) {
           {/* Service Areas */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Service Areas
+              Our Offices
             </h4>
             <ul className="space-y-2 text-slate-400">
-              {PRIMARY_SERVICE_AREAS.map((area, idx) => (
+              {ALL_OFFICES.filter((o) => FEATURED_DISTRICTS.includes(o.name)).map((area, idx) => (
                 <li key={idx}>
                   <a
                     href={`/#service-areas`}
@@ -129,7 +130,8 @@ export default function Footer({ onOpenEnquiry }) {
                     }}
                     className="hover:text-crimson-400 transition text-left block"
                   >
-                    {area.name} ({area.tamil})
+                    {area.name}
+                    {area.type === "Corporate Office" ? " (Corporate Office)" : ""}
                   </a>
                 </li>
               ))}
@@ -241,7 +243,7 @@ export default function Footer({ onOpenEnquiry }) {
           </div>
 
           <p className="text-slate-500">
-            Booking Helpline: {BOOKING_OFFICE.phone1} / {BOOKING_OFFICE.phone2}
+            Booking Helpline (all offices): {BOOKING_OFFICE.phone}
           </p>
         </div>
 

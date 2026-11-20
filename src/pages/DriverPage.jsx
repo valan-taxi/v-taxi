@@ -20,7 +20,7 @@ import {
   UserRound,
   Users,
 } from "lucide-react";
-import { PRIMARY_SERVICE_AREAS } from "../data/landingData";
+import { ALL_OFFICES } from "../data/landingData";
 import { usePageMeta } from "../hooks/usePageMeta";
 import ApplicationForm, { v } from "../components/join/ApplicationForm";
 import {
@@ -34,7 +34,7 @@ import {
   StepsTimeline,
 } from "../components/join/JoinSections";
 
-const CITIES = [...PRIMARY_SERVICE_AREAS.map((a) => a.name), "Other Tamil Nadu City"];
+const CITIES = [...ALL_OFFICES.map((a) => a.name), "Other Tamil Nadu City"];
 
 const FIELDS = [
   {
@@ -67,12 +67,12 @@ const FIELDS = [
   },
   {
     name: "city",
-    label: "Your city",
+    label: "Your district",
     required: true,
     type: "select",
-    placeholder: "Select city",
+    placeholder: "Select district",
     options: CITIES,
-    validate: v.select("your city"),
+    validate: v.select("your district"),
   },
   {
     name: "licence",
@@ -98,7 +98,7 @@ const FIELDS = [
 const HERO_CHIPS = [
   { icon: GraduationCap, label: "Training & guidance" },
   { icon: Clock3, label: "24/7 support desk" },
-  { icon: MapPin, label: "Chennai · Trichy · Madurai" },
+  { icon: MapPin, label: "All Tamil Nadu districts" },
 ];
 
 const HERO_HIGHLIGHTS = [
@@ -223,7 +223,7 @@ const FAQS = [
   },
   {
     q: "Which cities can I drive in?",
-    a: "We are currently preparing Chennai, Trichy, Thanjavur, Madurai and Rameswaram. If you are elsewhere in Tamil Nadu, choose 'Other Tamil Nadu City' and we will keep you informed.",
+    a: "We operate across all Tamil Nadu districts, with our Corporate Office in Chennai and a Branch Office in every other district. Choose your district and your nearest office will get in touch.",
   },
   {
     q: "Is there a fee to apply?",
@@ -234,7 +234,7 @@ const FAQS = [
 export default function DriverPage() {
   usePageMeta(
     "Become a Driver | Drive with V TAXI Tamil Nadu",
-    "Don't own a car? Join V TAXI as a professional chauffeur. Receive training, guidance, and drive for a trusted brand across Chennai, Trichy, Thanjavur, Madurai and Rameswaram.",
+    "Don't own a car? Join V TAXI as a professional chauffeur. Receive training, guidance, and drive for a trusted brand across all districts of Tamil Nadu.",
     { path: "/driver" }
   );
 
@@ -251,6 +251,23 @@ export default function DriverPage() {
         highlights={HERO_HIGHLIGHTS}
         primaryLabel="Apply as a driver"
       />
+
+      <ApplySection
+        eyebrow="Driver application"
+        title="Submit your"
+        accent="application"
+        description="Share a few details and our team will call you about the next steps."
+      >
+        <ApplicationForm
+          kind="driver"
+          fields={FIELDS}
+          submitLabel="Submit driver application"
+          consentLabel="I agree to V TAXI's rules and privacy policy, and allow V TAXI or its representatives to contact me by phone, SMS, WhatsApp or email about this application."
+          successTitle="Application received"
+          successText="Thank you for applying to drive with V TAXI. Our team will review your details and call you shortly."
+          whatsappIntro="Hi V TAXI, I just applied as a DRIVER on your website."
+        />
+      </ApplySection>
 
       <IntroBlock
         eyebrow="Drive with V TAXI"
@@ -289,23 +306,6 @@ export default function DriverPage() {
         items={REQUIREMENTS}
         note="The complete document list is confirmed by our team during verification."
       />
-
-      <ApplySection
-        eyebrow="Driver application"
-        title="Submit your"
-        accent="application"
-        description="Share a few details and our team will call you about the next steps."
-      >
-        <ApplicationForm
-          kind="driver"
-          fields={FIELDS}
-          submitLabel="Submit driver application"
-          consentLabel="I agree to V TAXI's rules and privacy policy, and allow V TAXI or its representatives to contact me by phone, SMS, WhatsApp or email about this application."
-          successTitle="Application received"
-          successText="Thank you for applying to drive with V TAXI. Our team will review your details and call you shortly."
-          whatsappIntro="Hi V TAXI, I just applied as a DRIVER on your website."
-        />
-      </ApplySection>
 
       <FaqAccordion
         eyebrow="Driver FAQ"

@@ -23,20 +23,17 @@ export default function ContactQuickActions({ onOpenEnquiry }) {
             icon={Phone}
             title="Ready to start"
             accent="your journey?"
-            description="Reach our booking office directly, or submit your travel details for a quotation and launch privileges."
+            description="Call our Chennai Corporate Office or any district Branch Office on one common number, or submit your travel details for a quotation and launch privileges."
           />
 
           <Reveal y={18} className="flex flex-wrap justify-center items-center gap-3">
-            {[BOOKING_OFFICE.phone1, BOOKING_OFFICE.phone2].map((num, i) => (
-              <a
-                key={num}
-                href={`tel:${i === 0 ? BOOKING_OFFICE.phone1Raw : BOOKING_OFFICE.phone2Raw}`}
-                className="lift px-5 py-3 rounded-2xl bg-white border border-slate-300 shadow-card-soft hover:border-crimson-400 hover:shadow-card-hover text-navy-900 font-mono font-bold text-base sm:text-lg flex items-center gap-2"
-              >
-                <Phone className="w-4 h-4 text-crimson-600" />
-                <span>{num}</span>
-              </a>
-            ))}
+            <a
+              href={`tel:${BOOKING_OFFICE.phoneRaw}`}
+              className="lift px-5 py-3 rounded-2xl bg-white border border-slate-300 shadow-card-soft hover:border-crimson-400 hover:shadow-card-hover text-navy-900 font-mono font-bold text-base sm:text-lg flex items-center gap-2"
+            >
+              <Phone className="w-4 h-4 text-crimson-600" />
+              <span>{BOOKING_OFFICE.phone}</span>
+            </a>
           </Reveal>
 
           <Reveal y={16} className="flex flex-col sm:flex-row gap-3">
